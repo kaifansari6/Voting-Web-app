@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗳️ Voting Application</h1>
+            <p>Cast your vote by selecting one of the options below</p>
+        </div>
+        
+        <div class="voting-section">
+            <form id="votingForm">
+                <div class="voter-info">
+                    <input type="text" id="voterName" placeholder="Enter your name" required>
+                    <input type="email" id="voterEmail" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="vote-options">
+                    <div class="vote-card">
+                        <input type="radio" id="casting" name="vote" value="casting" required>
+                        <label for="casting" class="vote-label">
+                            <div class="icon">✓</div>
+                            <h2>Casting</h2>
+                            <p>Vote in favor</p>
+                        </label>
+                    </div>
+                    
+                    <div class="vote-card">
+                        <input type="radio" id="nota" name="vote" value="nota" required>
+                        <label for="nota" class="vote-label">
+                            <div class="icon">✗</div>
+                            <h2>NOTA</h2>
+                            <p>None of the Above</p>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Vote</button>
+            </form>
+        </div>
+        
+        <div class="results-section">
+            <h2>Current Results</h2>
+            <div class="results-container">
+                <div class="result-item">
+                    <span class="result-label">Casting:</span>
+                    <span class="result-count" id="castingCount">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">NOTA:</span>
+                    <span class="result-count" id="notaCount">0</span>
+                </div>
+                <div class="result-item total">
+                    <span class="result-label">Total Votes:</span>
+                    <span class="result-count" id="totalCount">0</span>
+                </div>
+            </div>
+            <button onclick="loadResults()" class="refresh-btn">🔄 Refresh Results</button>
+        </div>
+        
+        <div id="notification" class="notification"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
