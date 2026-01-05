@@ -133,10 +133,11 @@ app.get('/api/results', async (req, res) => {
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-    res.json({ 
+    res.status(200).json({ 
         status: 'healthy', 
         timestamp: new Date().toISOString(),
-        azureConnected: !!tableClient
+        azureConnected: !!tableClient,
+        port: PORT
     });
 });
 
