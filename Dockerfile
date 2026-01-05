@@ -4,11 +4,11 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /app
 
-# Copy package files first
+# Copy package files first for better caching
 COPY package.json package-lock.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install dependencies - using npm ci for clean install
+RUN npm ci --only=production && npm cache clean --force
 
 # Copy application files
 COPY . .
